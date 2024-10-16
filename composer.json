@@ -1,0 +1,17 @@
+{
+    "name": "framo/php-game",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "FbrzRM",
+            "email": "framosmesias@gmail.com"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.2"
+    }
+}
