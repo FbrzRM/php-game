@@ -59,3 +59,10 @@ Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por fa
 - Incluye enlaces a documentación relevante o tutoriales si crees que pueden ser útiles para otros desarrolladores.
 
 Si necesitas más ajustes o detalles, ¡házmelo saber!
+
+
+### Actulizaciones:
+`20/10/2024`
+- Se creo la autenticación por JWT
+- Validación para el usuario cuando consulte (JWT)
+- Se actualizo el nombre de archivo / clase (Users) por User

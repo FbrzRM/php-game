@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Users;
-use App\Traits\{Request, Response};
+use App\Models\User;
+use App\Traits\{Request, Response, AuthJWT};
 
 class AuthController{
-    use Request, Response;
+    use Request, Response, AuthJWT;
     function register(){
-        $user = new Users;
+        $user = new User;
         $request = $this->body();
 
         $request["password"] = $user -> hashPassword($request["password"]);
@@ -20,12 +20,15 @@ class AuthController{
     }
 
     function signIn(){
-        $user = new Users();
+        $user = new User();
         $request = $this->body();
 
         $username = $user->validateUserForLogin($request["username"]);
         if(!$user -> verifyHash($request["password"], $username["password"])) return "Las contraseñas no coinciden";
-        return $this->json($username);
+
+        $token = $this->generateToken($username["id"], $username["username"]);
+        $this->headerSend($username, 200, ["auth-token"=> $token]);
+        return $this->json(["message" => "usuario inicio de sesión - correcto"]);
 
     }
 }

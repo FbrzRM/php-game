@@ -3,7 +3,7 @@
 namespace App\Models;
 use App\Core\DBConnection;
 
-class Users extends DBConnection{
+class User extends DBConnection{
     function __construct(){
         return $this->connection();
     }

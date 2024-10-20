@@ -59,6 +59,15 @@ class DBConnection{
         $rows =  $query-> fetch(PDO::PARAM_STR);
         return $rows;
     }
+
+    function allUsers() {
+        $sql = "SELECT * FROM users";
+        $query = $this->connection()->prepare($sql);
+        $query->execute();
+
+        $row = $query->fetchAll(PDO::PARAM_STR);
+        return $row;
+    }
 }
 
 ?>
